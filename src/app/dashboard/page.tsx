@@ -56,7 +56,7 @@ export default async function DashboardPage() {
             Hello, <span className="gradient-text">{decoded.name}</span>!
           </h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-            Track your Python learning tree progress and study lessons below.
+            Track your course progress and study lessons below.
           </p>
         </div>
 
@@ -115,7 +115,7 @@ export default async function DashboardPage() {
       {/* Course Map Tree Section */}
       <div>
         <h2 style={{ fontSize: '1.6rem', fontFamily: 'var(--font-display)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <span>🌳</span> Python Learning Map
+          <span>🌳</span> Course Map
         </h2>
         <TopicTree topics={topics} progressList={userProgress.map(p => ({
           topicId: p.topicId,

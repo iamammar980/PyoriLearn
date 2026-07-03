@@ -116,14 +116,9 @@ export default function Navbar({ user }: NavbarProps) {
             </button>
           </>
         ) : (
-          <>
-            <Link href="/login" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-              Sign In
-            </Link>
-            <Link href="/register" className="gradient-button" style={{ padding: '6px 16px', fontSize: '0.85rem', borderRadius: '6px' }}>
-              Get Started
-            </Link>
-          </>
+          <Link href="/login" className="gradient-button" style={{ padding: '6px 16px', fontSize: '0.85rem', borderRadius: '6px' }}>
+            Sign in with Google
+          </Link>
         )}
       </div>
     </nav>

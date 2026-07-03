@@ -632,6 +632,29 @@ export default function AdminPanel() {
                 />
               </div>
 
+              {/* Live preview — renders exactly what students will see */}
+              <div className={styles.formGroup}>
+                <label className={styles.formLabel}>🔎 Live Preview</label>
+                <div
+                  className="glass-panel"
+                  style={{ padding: '1.5rem', minHeight: '120px', background: 'var(--bg-secondary)' }}
+                >
+                  {materialType === 'PAGE' ? (
+                    materialContent.trim() ? (
+                      <div className="rich-content" dangerouslySetInnerHTML={{ __html: materialContent }} />
+                    ) : (
+                      <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+                        Start typing HTML above to see a live preview here.
+                      </span>
+                    )
+                  ) : (
+                    <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+                      Slide preview isn&apos;t shown here — save, then open the subtopic page to view the interactive slideshow.
+                    </span>
+                  )}
+                </div>
+              </div>
+
               <button type="submit" className="gradient-button" style={{ alignSelf: 'flex-end', padding: '10px 24px' }}>
                 Save Lesson Content
               </button>
@@ -686,7 +709,7 @@ export default function AdminPanel() {
                     onChange={(e) => setQuestionText(e.target.value)}
                     required
                     className={styles.input}
-                    placeholder="e.g. Which of the following defines a function in Python?"
+                    placeholder="e.g. Which of the following statements is correct?"
                   />
                 </div>
 
@@ -697,7 +720,7 @@ export default function AdminPanel() {
                     value={explanation}
                     onChange={(e) => setExplanation(e.target.value)}
                     className={styles.input}
-                    placeholder="e.g. Python uses the 'def' keyword to define functions."
+                    placeholder="e.g. Explain briefly why this answer is correct."
                   />
                 </div>
 

@@ -5,8 +5,8 @@ import Navbar from '@/components/Navbar';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'PyLearn - Interactive Python Learning Platform',
-  description: 'Learn Python programming through high-quality video explanations, interactive quizzes, and rich web materials.',
+  title: 'PyLearn — Integrated Learning Platform',
+  description: 'Learn any subject through structured course trees, high-quality video explanations, interactive quizzes, and rich web materials. Made by PYLORI.',
 };
 
 export default async function RootLayout({

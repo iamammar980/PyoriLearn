@@ -131,7 +131,7 @@ export default function TopicWorkspaceClient({ topic, initialProgress }: ClientP
         </Link>
 
         <div style={{ display: 'flex', gap: '8px', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>
-          <span>Python Syllabus</span>
+          <span>Course Syllabus</span>
           <span>&gt;</span>
           {topic.parent && (
             <>
