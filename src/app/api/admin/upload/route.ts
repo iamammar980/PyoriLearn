@@ -40,6 +40,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ url: blob.url, name: file.name, type: file.type });
     }
 
+    // On Vercel the filesystem is read-only, so disk writes can't work — require Blob.
+    if (process.env.VERCEL) {
+      return NextResponse.json(
+        { error: 'File storage is not configured: BLOB_READ_WRITE_TOKEN is missing. Add a Vercel Blob store to this project and redeploy.' },
+        { status: 500 }
+      );
+    }
+
     // Local dev fallback.
     const bytes = Buffer.from(await file.arrayBuffer());
     const dir = path.join(process.cwd(), 'public', 'uploads');
@@ -48,6 +56,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ url: `/uploads/${safeName}`, name: file.name, type: file.type });
   } catch (error) {
     console.error('Upload error:', error);
-    return NextResponse.json({ error: 'Upload failed' }, { status: 500 });
+    const message = error instanceof Error ? error.message : String(error);
+    return NextResponse.json({ error: `Upload failed: ${message}` }, { status: 500 });
   }
 }
