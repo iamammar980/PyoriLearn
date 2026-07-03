@@ -21,9 +21,11 @@ export async function POST(request: Request) {
 
     const { id, title, description, parentId, youtubeUrl, order } = await request.json();
 
-    if (!title || !description) {
-      return NextResponse.json({ error: 'Title and description are required' }, { status: 400 });
+    if (!title) {
+      return NextResponse.json({ error: 'Title is required' }, { status: 400 });
     }
+
+    const descriptionValue = description || '';
 
     const parentIdParsed = parentId ? Number(parentId) : null;
     const orderParsed = order ? Number(order) : 0;
@@ -36,7 +38,7 @@ export async function POST(request: Request) {
         where: { id: Number(id) },
         data: {
           title,
-          description,
+          description: descriptionValue,
           parentId: parentIdParsed,
           youtubeUrl: youtubeUrl || null,
           order: orderParsed,
@@ -47,7 +49,7 @@ export async function POST(request: Request) {
       topic = await prisma.topic.create({
         data: {
           title,
-          description,
+          description: descriptionValue,
           parentId: parentIdParsed,
           youtubeUrl: youtubeUrl || null,
           order: orderParsed,

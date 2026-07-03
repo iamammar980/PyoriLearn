@@ -546,7 +546,7 @@ export default function AdminPanel() {
                   </div>
                   <div className={styles.formGroup}>
                     <label className={styles.formLabel}>Description</label>
-                    <input type="text" value={topicDesc} onChange={(e) => setTopicDesc(e.target.value)} required className={styles.input} placeholder="Brief summary of this course section…" />
+                    <input type="text" value={topicDesc} onChange={(e) => setTopicDesc(e.target.value)} className={styles.input} placeholder="Brief summary of this course section…" />
                   </div>
                   <div className={styles.formGroup} style={{ maxWidth: '180px' }}>
                     <label className={styles.formLabel}>Display Order</label>
@@ -586,7 +586,7 @@ export default function AdminPanel() {
                     </div>
                     <div className={styles.formGroup}>
                       <label className={styles.formLabel}>Description</label>
-                      <input type="text" value={topicDesc} onChange={(e) => setTopicDesc(e.target.value)} required className={styles.input} placeholder="Brief summary of this lesson…" />
+                      <input type="text" value={topicDesc} onChange={(e) => setTopicDesc(e.target.value)} className={styles.input} placeholder="Brief summary of this lesson…" />
                     </div>
                     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                       <div className={styles.formGroup} style={{ flexGrow: 1, minWidth: '240px' }}>

@@ -8,9 +8,28 @@ interface VideoPlayerProps {
   onMarkWatched: () => Promise<void>;
 }
 
+// Extract a YouTube video ID from any common URL form (watch?v=, youtu.be/, /embed/, /shorts/).
+function getYouTubeId(url: string): string | null {
+  try {
+    const u = new URL(url.trim());
+    if (u.hostname.includes('youtu.be')) return u.pathname.slice(1).split('/')[0] || null;
+    if (u.pathname.startsWith('/embed/')) return u.pathname.split('/embed/')[1].split('/')[0] || null;
+    if (u.pathname.startsWith('/shorts/')) return u.pathname.split('/shorts/')[1].split('/')[0] || null;
+    const v = u.searchParams.get('v');
+    if (v) return v;
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 export default function VideoPlayer({ youtubeUrl, watched, onMarkWatched }: VideoPlayerProps) {
   const [loading, setLoading] = useState(false);
   const [isWatched, setIsWatched] = useState(watched);
+
+  const videoId = getYouTubeId(youtubeUrl);
+  const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : youtubeUrl;
+  const watchUrl = videoId ? `https://www.youtube.com/watch?v=${videoId}` : youtubeUrl;
 
   const handleMark = async () => {
     setLoading(true);
@@ -45,7 +64,7 @@ export default function VideoPlayer({ youtubeUrl, watched, onMarkWatched }: Vide
             height: '100%',
             border: 0,
           }}
-          src={youtubeUrl}
+          src={embedUrl}
           title="Video Explanation"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
@@ -71,6 +90,14 @@ export default function VideoPlayer({ youtubeUrl, watched, onMarkWatched }: Vide
               ? 'You have completed this video explanation. You can re-watch it at any time.' 
               : 'Watch the explanation video above. Once finished, mark it as completed to track progress.'}
           </p>
+          <a
+            href={watchUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontSize: '0.82rem', color: 'var(--primary-color)', fontWeight: 500, display: 'inline-block', marginTop: '0.4rem' }}
+          >
+            ↗ Open on YouTube
+          </a>
         </div>
 
         <button
