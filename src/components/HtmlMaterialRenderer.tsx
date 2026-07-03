@@ -88,7 +88,7 @@ export default function HtmlMaterialRenderer({ content, type, completed, onCompl
               disabled={currentSlideIndex === 0}
               className={styles.navButton}
             >
-              ← Prev
+              Prev
             </button>
 
             <span className={styles.slideIndicator}>
@@ -106,7 +106,7 @@ export default function HtmlMaterialRenderer({ content, type, completed, onCompl
               </button>
             ) : (
               <button onClick={handleNext} className={styles.navButton}>
-                Next →
+                Next
               </button>
             )}
           </div>
@@ -132,7 +132,7 @@ export default function HtmlMaterialRenderer({ content, type, completed, onCompl
           }}
         >
           <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-            {isCompleted ? '🎉 You have completed this study material!' : '📖 Finished reading? Mark it as complete.'}
+            {isCompleted ? 'You have completed this study material!' : 'Finished reading? Mark it as complete.'}
           </span>
           <button
             onClick={handleComplete}

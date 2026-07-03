@@ -38,8 +38,8 @@ export default function Navbar({ user }: NavbarProps) {
         alignItems: 'center',
         padding: '1rem 2rem',
         borderBottom: '1px solid var(--border-color)',
-        background: 'rgba(255, 255, 255, 0.8)',
-        backdropFilter: 'blur(12px)',
+        background: '#ffffff',
+        backdropFilter: 'none',
         position: 'sticky',
         top: 0,
         zIndex: 50,
@@ -48,17 +48,15 @@ export default function Navbar({ user }: NavbarProps) {
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <span 
-            style={{ 
-              fontSize: '1.6rem', 
-              fontWeight: 800, 
-              background: 'linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+          <span
+            style={{
+              fontSize: '1.6rem',
+              fontWeight: 800,
+              color: '#000',
               fontFamily: 'var(--font-display)'
             }}
           >
-            🐍 PyLearn
+            PyLearn
           </span>
         </Link>
 
@@ -83,7 +81,7 @@ export default function Navbar({ user }: NavbarProps) {
               <div style={{ fontSize: '0.9rem', fontWeight: 500 }}>{user.name}</div>
               <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>
                 {user.role === 'ADMIN' ? (
-                  <span style={{ color: 'var(--accent-color)', fontWeight: 600, border: '1px solid rgba(168,85,247,0.2)', padding: '1px 4px', borderRadius: '4px', background: 'rgba(168,85,247,0.05)' }}>
+                  <span style={{ color: '#000', fontWeight: 600, border: '1px solid var(--border-color)', padding: '1px 4px', borderRadius: '4px', background: 'rgba(0,0,0,0.04)' }}>
                     Instructor
                   </span>
                 ) : (
@@ -94,7 +92,7 @@ export default function Navbar({ user }: NavbarProps) {
             <button 
               onClick={handleLogout} 
               style={{
-                background: 'rgba(15,23,42,0.04)',
+                background: 'rgba(0,0,0,0.04)',
                 border: '1px solid var(--border-color)',
                 color: 'var(--text-primary)',
                 padding: '6px 12px',
@@ -104,11 +102,11 @@ export default function Navbar({ user }: NavbarProps) {
                 transition: 'var(--transition-fast)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(239, 68, 68, 0.1)';
-                e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.2)';
+                e.currentTarget.style.background = 'rgba(0, 0, 0, 0.08)';
+                e.currentTarget.style.borderColor = 'var(--border-hover)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(15, 23, 42, 0.04)';
+                e.currentTarget.style.background = 'rgba(0, 0, 0, 0.04)';
                 e.currentTarget.style.borderColor = 'var(--border-color)';
               }}
             >

@@ -191,7 +191,7 @@ export default function AdminPanel() {
         slideObj = {
           title: 'Title of Slide',
           layout: 'welcome',
-          html: '<h1>Welcome to this Topic</h1><p>Introduce the subject here with clear paragraphs.</p><div class="highlight-box">💡 <strong>Tip:</strong> Callout important facts.</div>',
+          html: '<h1>Welcome to this Topic</h1><p>Introduce the subject here with clear paragraphs.</p><div class="highlight-box"><strong>Tip:</strong> Callout important facts.</div>',
         };
       } else if (templateType === 'grid') {
         slideObj = {
@@ -224,9 +224,9 @@ export default function AdminPanel() {
       } else if (templateType === 'code') {
         html = '<h2>Example</h2>\n<pre><code>your example here</code></pre>\n<p>Explain the example above...</p>\n';
       } else if (templateType === 'note') {
-        html = '<div class="note-box">\n💡 <strong>Key Note:</strong> Write important notes here.\n</div>\n';
+        html = '<div class="note-box">\n<strong>Key Note:</strong> Write important notes here.\n</div>\n';
       } else if (templateType === 'warning') {
-        html = '<div class="warning-box">\n⚠️ <strong>Caution:</strong> Write warnings here.\n</div>\n';
+        html = '<div class="warning-box">\n<strong>Caution:</strong> Write warnings here.\n</div>\n';
       }
       setMaterialContent((prev) => prev + html);
     }
@@ -243,22 +243,22 @@ export default function AdminPanel() {
       const res = await fetch('/api/admin/upload', { method: 'POST', body: fd });
       const data = await res.json();
       if (!res.ok) {
-        setUploadMsg(`❌ ${data.error || 'Upload failed'}`);
+        setUploadMsg(`${data.error || 'Upload failed'}`);
       } else {
         const isImage = (data.type || '').startsWith('image/');
         const snippet = isImage
           ? `\n<img src="${data.url}" alt="${data.name}" style="max-width:100%;border-radius:8px;" />\n`
-          : `\n<p>📎 <a href="${data.url}" target="_blank" rel="noopener">Download ${data.name}</a></p>\n`;
+          : `\n<p><a href="${data.url}" target="_blank" rel="noopener">Download ${data.name}</a></p>\n`;
         if (materialType === 'PAGE') {
           setMaterialContent((prev) => prev + snippet);
-          setUploadMsg(`✅ Inserted ${data.name} into the content below.`);
+          setUploadMsg(`Inserted ${data.name} into the content below.`);
         } else {
-          setUploadMsg(`✅ Uploaded. URL: ${data.url}`);
+          setUploadMsg(`Uploaded. URL: ${data.url}`);
         }
       }
     } catch (err) {
       console.error(err);
-      setUploadMsg('❌ Upload failed. Check your connection.');
+      setUploadMsg('Upload failed. Check your connection.');
     } finally {
       setUploading(false);
       e.target.value = '';
@@ -343,7 +343,7 @@ export default function AdminPanel() {
       });
 
       if (res.ok) {
-        setUploadMsg('✅ Study material saved.');
+        setUploadMsg('Study material saved.');
         await loadData();
       }
     } catch (err) {
@@ -425,8 +425,8 @@ export default function AdminPanel() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', padding: '2rem', maxWidth: '1300px', margin: '0 auto', width: '100%' }}>
       {/* Top view switch */}
       <div style={{ display: 'flex', gap: '0.5rem' }}>
-        <button onClick={() => setView('content')} style={switchBtn(view === 'content')}>📚 Manage Courses</button>
-        <button onClick={() => setView('students')} style={switchBtn(view === 'students')}>👥 Students</button>
+        <button onClick={() => setView('content')} style={switchBtn(view === 'content')}>Manage Courses</button>
+        <button onClick={() => setView('students')} style={switchBtn(view === 'students')}>Students</button>
       </div>
 
       {view === 'students' ? (
@@ -453,7 +453,7 @@ export default function AdminPanel() {
                       <td className={styles.td} style={{ fontWeight: 600 }}>{user.name}</td>
                       <td className={styles.td}>{user.email}</td>
                       <td className={styles.td}>
-                        <span className={styles.badge} style={{ background: user.role === 'ADMIN' ? 'rgba(124,58,237,0.12)' : 'rgba(37,99,235,0.12)', color: user.role === 'ADMIN' ? '#7c3aed' : '#2563eb' }}>
+                        <span className={styles.badge} style={{ background: 'rgba(0,0,0,0.05)', color: '#000' }}>
                           {user.role}
                         </span>
                       </td>
@@ -479,7 +479,7 @@ export default function AdminPanel() {
               <h3 style={{ fontSize: '1rem', color: 'var(--text-secondary)' }}>Course Tree</h3>
             </div>
             <button onClick={startNewMain} className="gradient-button" style={{ width: '100%', padding: '9px', fontSize: '0.85rem', marginBottom: '1rem' }}>
-              ➕ Add Main Topic
+              Add Main Topic
             </button>
 
             {mainTopics.length === 0 && (
@@ -498,7 +498,7 @@ export default function AdminPanel() {
                     className={`${styles.sidebarTab} ${mainActive ? styles.sidebarTabActive : ''}`}
                     style={{ width: '100%', fontWeight: 600 }}
                   >
-                    📦 {main.title}
+                    {main.title}
                   </button>
                   <div style={{ paddingLeft: '0.75rem', marginTop: '0.25rem', display: 'flex', flexDirection: 'column', gap: '0.2rem' }}>
                     {children.map((child) => {
@@ -510,7 +510,7 @@ export default function AdminPanel() {
                           className={`${styles.sidebarTab} ${childActive ? styles.sidebarTabActive : ''}`}
                           style={{ width: '100%', fontSize: '0.88rem' }}
                         >
-                          📄 {child.title}
+                          {child.title}
                         </button>
                       );
                     })}
@@ -519,7 +519,7 @@ export default function AdminPanel() {
                       className={styles.sidebarTab}
                       style={{ width: '100%', fontSize: '0.82rem', color: 'var(--text-muted)' }}
                     >
-                      ➕ Add lesson
+                      Add lesson
                     </button>
                   </div>
                 </div>
@@ -563,7 +563,7 @@ export default function AdminPanel() {
                 </form>
                 {mode === 'editMain' && (
                   <button onClick={() => startNewLesson(topicId!)} className={styles.btnSecondary} style={{ marginTop: '1.25rem' }}>
-                    ➕ Add a lesson under this topic
+                    Add a lesson under this topic
                   </button>
                 )}
               </div>
@@ -576,7 +576,7 @@ export default function AdminPanel() {
                   <h2 className={styles.cardTitle}>
                     {mode === 'newLesson' ? 'New Lesson' : 'Edit Lesson'}
                     <span style={{ fontSize: '0.8rem', fontWeight: 400, color: 'var(--text-muted)' }}>
-                      under 📦 {parentTitle}
+                      under {parentTitle}
                     </span>
                   </h2>
                   <form onSubmit={handleTopicSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -619,7 +619,7 @@ export default function AdminPanel() {
                   <>
                     {/* Study material */}
                     <div className={`${styles.adminCard} glass-panel`}>
-                      <h2 className={styles.cardTitle}>📖 Study Material</h2>
+                      <h2 className={styles.cardTitle}>Study Material</h2>
                       <form onSubmit={handleMaterialSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                         <div className={styles.formGroup}>
                           <label className={styles.formLabel}>Display Mode</label>
@@ -659,7 +659,7 @@ export default function AdminPanel() {
 
                           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '0.5rem' }}>
                             <label className="outline-button" style={{ padding: '8px 16px', fontSize: '0.85rem', cursor: uploading ? 'wait' : 'pointer' }}>
-                              {uploading ? 'Uploading…' : '📎 Upload file / image'}
+                              {uploading ? 'Uploading…' : 'Upload file / image'}
                               <input type="file" onChange={handleFileUpload} disabled={uploading} style={{ display: 'none' }} />
                             </label>
                             <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Images embed inline; other files become a download link.</span>
@@ -676,7 +676,7 @@ export default function AdminPanel() {
                         </div>
 
                         <div className={styles.formGroup}>
-                          <label className={styles.formLabel}>🔎 Live Preview</label>
+                          <label className={styles.formLabel}>Live Preview</label>
                           <div className="glass-panel" style={{ padding: '1.5rem', minHeight: '120px', background: 'var(--bg-secondary)' }}>
                             {materialType === 'PAGE' ? (
                               materialContent.trim() ? (
@@ -697,7 +697,7 @@ export default function AdminPanel() {
                     {/* Quizzes */}
                     <div className={`${styles.adminCard} glass-panel`}>
                       <h2 className={styles.cardTitle}>
-                        ✍️ Quiz Questions
+                        Quiz Questions
                         {editingQuestionId && (
                           <button onClick={resetQuizForm} className={styles.btnSecondary} style={{ fontSize: '0.8rem' }}>Cancel Edit</button>
                         )}
@@ -710,7 +710,7 @@ export default function AdminPanel() {
                               <div>
                                 <strong>{q.questionText}</strong>
                                 <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
-                                  {q.options.map((o) => `${o.optionText}${o.isCorrect ? ' (✓)' : ''}`).join(', ')}
+                                  {q.options.map((o) => `${o.optionText}${o.isCorrect ? ' (correct)' : ''}`).join(', ')}
                                 </div>
                               </div>
                               <div style={{ display: 'flex', gap: '0.5rem' }}>

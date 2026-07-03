@@ -62,7 +62,7 @@ export default async function DashboardPage() {
 
         {decoded.role === 'ADMIN' && (
           <Link href="/admin" className="gradient-button" style={{ padding: '8px 16px', fontSize: '0.9rem' }}>
-            🔧 Open Instructor Control Panel
+            Open Instructor Control Panel
           </Link>
         )}
       </div>
@@ -82,8 +82,8 @@ export default async function DashboardPage() {
           <span style={{ fontSize: '2.2rem', fontWeight: 800, fontFamily: 'var(--font-display)' }}>
             {progressPercent}%
           </span>
-          <div style={{ width: '100%', height: '6px', background: 'rgba(15,23,42,0.06)', borderRadius: '3px', overflow: 'hidden', marginTop: '0.25rem' }}>
-            <div style={{ width: `${progressPercent}%`, height: '100%', background: 'linear-gradient(to right, var(--primary-color), var(--accent-color))' }} />
+          <div style={{ width: '100%', height: '6px', background: 'rgba(0,0,0,0.06)', borderRadius: '3px', overflow: 'hidden', marginTop: '0.25rem' }}>
+            <div style={{ width: `${progressPercent}%`, height: '100%', background: '#000' }} />
           </div>
         </div>
 
@@ -95,7 +95,7 @@ export default async function DashboardPage() {
             {completedSubtopics} <span style={{ fontSize: '1.2rem', fontWeight: 400, color: 'var(--text-secondary)' }}>/ {totalSubtopics}</span>
           </span>
           <span style={{ fontSize: '0.82rem', color: 'var(--success-color)' }}>
-            ✓ Ready for next step!
+            Ready for next step!
           </span>
         </div>
 
@@ -107,7 +107,7 @@ export default async function DashboardPage() {
             {watchedCount} <span style={{ fontSize: '1.2rem', fontWeight: 400, color: 'var(--text-secondary)' }}>/ {totalSubtopics}</span>
           </span>
           <span style={{ fontSize: '0.82rem', color: 'var(--primary-color)' }}>
-            🎥 Interactive screen logging
+            Interactive screen logging
           </span>
         </div>
       </div>
@@ -115,7 +115,7 @@ export default async function DashboardPage() {
       {/* Course Map Tree Section */}
       <div>
         <h2 style={{ fontSize: '1.6rem', fontFamily: 'var(--font-display)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <span>🌳</span> Course Map
+          Course Map
         </h2>
         <TopicTree topics={topics} progressList={userProgress.map(p => ({
           topicId: p.topicId,

@@ -78,12 +78,12 @@ export default function VideoPlayer({ youtubeUrl, watched, onMarkWatched }: Vide
           justifyContent: 'space-between', 
           alignItems: 'center', 
           padding: '1.25rem 1.5rem',
-          background: 'rgba(30, 41, 59, 0.2)' 
+          background: 'rgba(0, 0, 0, 0.04)'
         }}
       >
         <div>
           <h4 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '0.25rem' }}>
-            {isWatched ? '✅ Video Completed' : '🎥 Learn from Video'}
+            {isWatched ? 'Video Completed' : 'Video'}
           </h4>
           <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
             {isWatched 
@@ -96,7 +96,7 @@ export default function VideoPlayer({ youtubeUrl, watched, onMarkWatched }: Vide
             rel="noopener noreferrer"
             style={{ fontSize: '0.82rem', color: 'var(--primary-color)', fontWeight: 500, display: 'inline-block', marginTop: '0.4rem' }}
           >
-            ↗ Open on YouTube
+            Open on YouTube
           </a>
         </div>
 

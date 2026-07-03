@@ -15,7 +15,7 @@
 }
 
 .mainTopicHeader {
-  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  background: #ffffff;
   border: 1px solid var(--border-color);
   padding: 1.5rem;
   border-radius: 12px;
@@ -26,8 +26,8 @@
 }
 
 .mainTopicHeader:hover {
-  border-color: rgba(59, 130, 246, 0.3);
-  box-shadow: 0 0 25px rgba(59, 130, 246, 0.1);
+  border-color: var(--border-hover);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
 }
 
@@ -38,7 +38,7 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+  background: #000;
 }
 
 .mainTopicTitle {
@@ -92,9 +92,9 @@
 }
 
 .subtopicCard {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: #ffffff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 1.25rem;
@@ -107,14 +107,14 @@
 }
 
 .subtopicCard:hover {
-  background: rgba(15, 23, 42, 0.03);
-  border-color: rgba(15, 23, 42, 0.15);
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.15);
   transform: translateX(4px);
 }
 
 .subtopicCardActive {
-  border-color: rgba(168, 85, 247, 0.3);
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.05);
+  border-color: var(--border-hover);
+  box-shadow: none;
 }
 
 .subtopicInfo {
@@ -148,13 +148,13 @@
 }
 
 .statusCompleted {
-  background: var(--success-color);
-  box-shadow: 0 0 8px var(--success-color);
+  background: #000;
+  box-shadow: none;
 }
 
 .statusInProgress {
-  background: var(--primary-color);
-  box-shadow: 0 0 8px var(--primary-color);
+  background: #666;
+  box-shadow: none;
 }
 
 .progressBadge {
@@ -162,25 +162,25 @@
   font-weight: 600;
   padding: 4px 8px;
   border-radius: 6px;
-  background: rgba(15, 23, 42, 0.05);
+  background: rgba(0, 0, 0, 0.05);
   color: var(--text-secondary);
   border: 1px solid var(--border-color);
 }
 
 .badgeCompleted {
-  background: rgba(16, 185, 129, 0.1);
-  color: #047857;
-  border-color: rgba(16, 185, 129, 0.2);
+  background: rgba(0, 0, 0, 0.05);
+  color: #000;
+  border-color: var(--border-color);
 }
 
 .badgeInProgress {
-  background: rgba(59, 130, 246, 0.1);
-  color: #1d4ed8;
-  border-color: rgba(59, 130, 246, 0.2);
+  background: rgba(0, 0, 0, 0.05);
+  color: #000;
+  border-color: var(--border-color);
 }
 
 .actionButton {
-  background: rgba(15, 23, 42, 0.05);
+  background: rgba(0, 0, 0, 0.05);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
   font-weight: 500;
@@ -195,6 +195,6 @@
 .actionButton:hover {
   background: var(--primary-color);
   border-color: var(--primary-color);
-  box-shadow: var(--shadow-glow);
+  box-shadow: none;
   color: white;
 }

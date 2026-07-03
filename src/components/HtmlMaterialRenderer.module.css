@@ -22,7 +22,7 @@
   justify-content: space-between;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(145deg, #ffffff 0%, #f5f3ff 100%);
+  background: #ffffff;
 }
 
 .slideProgress {
@@ -35,13 +35,13 @@
   flex-grow: 1;
   height: 4px;
   border-radius: 2px;
-  background: rgba(15, 23, 42, 0.1);
+  background: rgba(0, 0, 0, 0.1);
   transition: var(--transition-normal);
 }
 
 .progressBarActive {
   background: var(--accent-color);
-  box-shadow: 0 0 8px var(--accent-color);
+  box-shadow: none;
 }
 
 .slideContent {
@@ -66,7 +66,7 @@
 }
 
 .navButton {
-  background: rgba(15, 23, 42, 0.04);
+  background: rgba(0, 0, 0, 0.04);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
   font-weight: 500;
@@ -81,8 +81,8 @@
 }
 
 .navButton:hover:not(:disabled) {
-  background: rgba(15, 23, 42, 0.08);
-  border-color: rgba(15, 23, 42, 0.25);
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.25);
   color: var(--text-primary);
 }
 
@@ -95,13 +95,13 @@
   background: var(--success-color);
   border: 1px solid var(--success-color);
   color: white;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+  box-shadow: none;
 }
 
 .completeButton:hover {
-  background: #059669 !important;
-  border-color: #059669 !important;
-  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+  background: #222 !important;
+  border-color: #222 !important;
+  box-shadow: none;
 }
 
 /* Slide structures classes inside rich content */
@@ -113,16 +113,16 @@
 }
 
 :global(.feature-card) {
-  background: rgba(15, 23, 42, 0.03);
-  border: 1px solid rgba(15, 23, 42, 0.05);
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   padding: 1.25rem;
   border-radius: 8px;
   transition: var(--transition-normal);
 }
 
 :global(.feature-card:hover) {
-  background: rgba(15, 23, 42, 0.06);
-  border-color: rgba(15, 23, 42, 0.1);
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
 }
 
@@ -140,11 +140,11 @@
 }
 
 :global(.code-explanation) {
-  background: rgba(59, 130, 246, 0.05);
+  background: rgba(0, 0, 0, 0.04);
   border-left: 3px solid var(--primary-color);
   padding: 0.75rem 1rem;
   border-radius: 0 6px 6px 0;
   font-size: 0.9rem;
-  color: #1d4ed8;
+  color: #000;
   margin-top: 1rem;
 }

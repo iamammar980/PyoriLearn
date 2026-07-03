@@ -34,16 +34,16 @@ export default function LoginPage() {
         {error && (
           <div
             style={{
-              background: 'rgba(239, 68, 68, 0.1)',
-              border: '1px solid rgba(239, 68, 68, 0.2)',
-              color: '#dc2626',
+              background: 'rgba(0, 0, 0, 0.04)',
+              border: '1px solid var(--border-color)',
+              color: '#000',
               padding: '0.75rem 1rem',
               borderRadius: '8px',
               fontSize: '0.88rem',
               textAlign: 'center'
             }}
           >
-            ⚠️ {error}
+            {error}
           </div>
         )}
 

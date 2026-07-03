@@ -64,7 +64,7 @@ export default function TopicTree({ topics, progressList }: TopicTreeProps) {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div style={{ flexGrow: 1 }}>
                   <h3 className={styles.mainTopicTitle}>
-                    <span>📦</span> {mainTopic.title}
+                    {mainTopic.title}
                   </h3>
                   <p className={styles.mainTopicDesc}>{mainTopic.description}</p>
                 </div>
@@ -101,8 +101,8 @@ export default function TopicTree({ topics, progressList }: TopicTreeProps) {
                           <h4 className={styles.subtopicTitle}>{subtopic.title}</h4>
                           <p className={styles.subtopicDesc}>{subtopic.description}</p>
                           <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                            {prog.watchedVideo && <span>🎥 Video Watched</span>}
-                            {prog.quizScore > 0 && <span>📝 Quiz Best: {prog.quizScore}%</span>}
+                            {prog.watchedVideo && <span>Video Watched</span>}
+                            {prog.quizScore > 0 && <span>Quiz Best: {prog.quizScore}%</span>}
                           </div>
                         </div>
 

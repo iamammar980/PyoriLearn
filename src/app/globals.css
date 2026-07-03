@@ -1,37 +1,37 @@
 /* Site font: Helvetica (system font stack, no web font needed) */
 
 :root {
-  /* HSL Color Tokens */
-  --bg-primary: #f7f8fb; /* Light page background */
-  --bg-secondary: #ffffff; /* Card base background */
-  --bg-accent: rgba(255, 255, 255, 0.75); /* Glassmorphic card overlay */
+  /* Monochrome Color Tokens */
+  --bg-primary: #ffffff;
+  --bg-secondary: #ffffff;
+  --bg-accent: #ffffff;
 
-  --text-primary: #0f172a; /* Deep slate */
-  --text-secondary: #475569; /* Cool grey slate */
-  --text-muted: #64748b; /* Medium grey slate */
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-muted: #666666;
 
-  --primary-color: #2563eb; /* Electric blue */
-  --primary-glow: rgba(37, 99, 235, 0.12);
+  --primary-color: #000000;
+  --primary-glow: rgba(0,0,0,0.06);
 
-  --success-color: #059669; /* Emerald green */
-  --success-glow: rgba(5, 150, 105, 0.12);
+  --success-color: #000000;
+  --success-glow: rgba(0,0,0,0.06);
 
-  --accent-color: #7c3aed; /* Violet purple */
-  --accent-glow: rgba(124, 58, 237, 0.12);
+  --accent-color: #000000;
+  --accent-glow: rgba(0,0,0,0.06);
 
-  --warning-color: #d97706; /* Amber orange */
-  --error-color: #dc2626; /* Crimson red */
+  --warning-color: #000000;
+  --error-color: #000000;
 
-  --border-color: rgba(15, 23, 42, 0.1);
-  --border-hover: rgba(15, 23, 42, 0.2);
+  --border-color: rgba(0,0,0,0.18);
+  --border-hover: rgba(0,0,0,0.45);
 
   --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  
+
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.18);
+  --shadow-glow: none;
 
   --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -57,11 +57,7 @@ html, body {
 }
 
 body {
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.05) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%),
-    radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.03) 0px, transparent 50%);
-  background-attachment: fixed;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
 }
@@ -94,23 +90,23 @@ button, input, select, textarea {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: #fff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(15, 23, 42, 0.15);
+  background: rgba(0, 0, 0, 0.25);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(15, 23, 42, 0.25);
+  background: rgba(0, 0, 0, 0.25);
 }
 
 /* Micro-animations and Global Helpers */
 .glass-panel {
-  background: var(--bg-accent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #fff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border: 1px solid var(--border-color);
   border-radius: 12px;
   transition: var(--transition-normal);
@@ -118,20 +114,19 @@ button, input, select, textarea {
 
 .glass-panel:hover {
   border-color: var(--border-hover);
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: none;
+  color: #000;
+  -webkit-text-fill-color: #000;
   display: inline-block;
 }
 
 .gradient-button {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
-  color: white !important;
+  background: #000;
+  color: #fff !important;
   font-weight: 600;
   padding: 10px 20px;
   border-radius: 8px;
@@ -142,12 +137,13 @@ button, input, select, textarea {
   justify-content: center;
   gap: 8px;
   transition: var(--transition-normal);
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  box-shadow: none;
 }
 
 .gradient-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+  background: #222;
+  box-shadow: none;
+  transform: none;
 }
 
 .gradient-button:active {
@@ -167,7 +163,7 @@ button, input, select, textarea {
 }
 
 .outline-button:hover {
-  background-color: rgba(15, 23, 42, 0.04);
+  background-color: rgba(0, 0, 0, 0.04);
   border-color: var(--border-hover);
 }
 
@@ -181,9 +177,9 @@ button, input, select, textarea {
 .rich-content h1 {
   font-size: 2.25rem;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, var(--text-primary) 50%, var(--text-secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #000;
+  background: none;
+  -webkit-text-fill-color: #000;
 }
 
 .rich-content h2 {
@@ -212,16 +208,16 @@ button, input, select, textarea {
 
 .rich-content code {
   font-family: 'Courier New', Courier, monospace;
-  background: rgba(15, 23, 42, 0.06);
+  background: #f0f0f0;
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 0.9em;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  color: #e11d48;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #000;
 }
 
 .rich-content pre {
-  background: #0f172a;
+  background: #f5f5f5;
   padding: 1.25rem;
   border-radius: 8px;
   border: 1px solid var(--border-color);
@@ -233,7 +229,7 @@ button, input, select, textarea {
   background: transparent;
   padding: 0;
   border: none;
-  color: #38bdf8; /* Soft blue */
+  color: #000;
 }
 
 /* Slides style for Interactive materials */
@@ -262,21 +258,21 @@ button, input, select, textarea {
 }
 
 .highlight-box {
-  background: rgba(59, 130, 246, 0.1);
-  border-left: 4px solid var(--primary-color);
-  color: #2563eb;
+  background: #f5f5f5;
+  border-left: 4px solid #000;
+  color: #000;
 }
 
 .note-box {
-  background: rgba(168, 85, 247, 0.1);
-  border-left: 4px solid var(--accent-color);
-  color: #7c3aed;
+  background: #f5f5f5;
+  border-left: 4px solid #000;
+  color: #000;
 }
 
 .warning-box {
-  background: rgba(245, 158, 11, 0.1);
-  border-left: 4px solid var(--warning-color);
-  color: #b45309;
+  background: #f5f5f5;
+  border-left: 4px solid #000;
+  color: #000;
 }
 
 @keyframes fadeIn {

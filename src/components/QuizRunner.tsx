@@ -89,7 +89,7 @@ export default function QuizRunner({ questions, bestScore, onSaveScore }: QuizRu
       <div className={styles.quizContainer}>
         <div className={`${styles.quizCard} glass-panel ${styles.resultScreen}`}>
           <h2 className={styles.resultTitle}>
-            {passed ? '🎉 Quiz Completed!' : '👍 Keep Practicing!'}
+            {passed ? 'Quiz Completed!' : 'Keep Practicing!'}
           </h2>
           
           <div className={styles.resultScoreBadge}>
@@ -148,8 +148,8 @@ export default function QuizRunner({ questions, bestScore, onSaveScore }: QuizRu
                   className={optionClass}
                 >
                   <span>{option.optionText}</span>
-                  {answered && option.isCorrect && <span>✓</span>}
-                  {answered && selectedOptionId === option.id && !option.isCorrect && <span>✗</span>}
+                  {answered && option.isCorrect && <span>(correct)</span>}
+                  {answered && selectedOptionId === option.id && !option.isCorrect && <span>(incorrect)</span>}
                 </button>
               );
             })}
@@ -157,7 +157,7 @@ export default function QuizRunner({ questions, bestScore, onSaveScore }: QuizRu
 
           {answered && currentQuestion.explanation && (
             <div className={styles.explanation}>
-              💡 <strong>Explanation:</strong> {currentQuestion.explanation}
+              <strong>Explanation:</strong> {currentQuestion.explanation}
             </div>
           )}
         </div>
@@ -166,7 +166,7 @@ export default function QuizRunner({ questions, bestScore, onSaveScore }: QuizRu
         {answered && (
           <div className={styles.footer}>
             <button onClick={handleNext} className={styles.nextButton}>
-              {currentIndex === questions.length - 1 ? 'Finish' : 'Next Question →'}
+              {currentIndex === questions.length - 1 ? 'Finish' : 'Next Question'}
             </button>
           </div>
         )}

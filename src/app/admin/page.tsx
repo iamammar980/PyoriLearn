@@ -22,7 +22,7 @@ export default async function AdminPage() {
       {/* Admin Panel Header Banner */}
       <div 
         style={{ 
-          background: 'linear-gradient(to bottom, rgba(168, 85, 247, 0.05) 0%, transparent 100%)',
+          background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 0%, transparent 100%)',
           borderBottom: '1px solid var(--border-color)',
           padding: '2.5rem 2rem'
         }}
@@ -32,12 +32,12 @@ export default async function AdminPage() {
             style={{ 
               fontSize: '0.78rem', 
               textTransform: 'uppercase', 
-              color: 'var(--accent-color)', 
-              fontWeight: 700, 
-              border: '1px solid rgba(168,85,247,0.3)',
+              color: 'var(--text-primary)',
+              fontWeight: 700,
+              border: '1px solid var(--border-color)',
               padding: '2px 6px',
               borderRadius: '4px',
-              background: 'rgba(168,85,247,0.05)',
+              background: 'rgba(0,0,0,0.04)',
               letterSpacing: '0.05em'
             }}
           >

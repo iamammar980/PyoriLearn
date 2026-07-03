@@ -38,14 +38,14 @@
 }
 
 .sidebarTab:hover {
-  background: rgba(15, 23, 42, 0.04);
+  background: rgba(0, 0, 0, 0.04);
   color: var(--text-primary);
 }
 
 .sidebarTabActive {
-  background: rgba(168, 85, 247, 0.1) !important;
-  color: #7c3aed !important;
-  border-color: rgba(168, 85, 247, 0.2) !important;
+  background: rgba(0, 0, 0, 0.04) !important;
+  color: #000 !important;
+  border-color: var(--border-color) !important;
 }
 
 .adminCard {
@@ -116,7 +116,7 @@
 }
 
 .th {
-  background: rgba(15, 23, 42, 0.03);
+  background: rgba(0, 0, 0, 0.03);
   padding: 1rem 1.25rem;
   font-weight: 600;
   color: var(--text-secondary);
@@ -130,7 +130,7 @@
 }
 
 .tr:hover {
-  background: rgba(15, 23, 42, 0.03);
+  background: rgba(0, 0, 0, 0.03);
 }
 
 /* CRUD Lists */
@@ -146,12 +146,12 @@
   align-items: center;
   padding: 1rem 1.25rem;
   border-radius: 8px;
-  background: rgba(15, 23, 42, 0.03);
+  background: rgba(0, 0, 0, 0.03);
   border: 1px solid var(--border-color);
 }
 
 .itemRow:hover {
-  border-color: rgba(15, 23, 42, 0.12);
+  border-color: rgba(0, 0, 0, 0.12);
 }
 
 .badge {
@@ -159,13 +159,13 @@
   font-weight: 600;
   padding: 2px 6px;
   border-radius: 4px;
-  background: rgba(15, 23, 42, 0.08);
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .btnDanger {
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.2);
-  color: #dc2626;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-color);
+  color: #000;
   padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
@@ -179,7 +179,7 @@
 }
 
 .btnSecondary {
-  background: rgba(15, 23, 42, 0.04);
+  background: rgba(0, 0, 0, 0.04);
   border: 1px solid var(--border-color);
   color: var(--text-secondary);
   padding: 6px 12px;
@@ -190,7 +190,7 @@
 }
 
 .btnSecondary:hover {
-  background: rgba(15, 23, 42, 0.08);
+  background: rgba(0, 0, 0, 0.08);
   color: var(--text-primary);
 }
 
@@ -199,13 +199,13 @@
   font-size: 0.8rem;
   padding: 4px 8px;
   border-radius: 4px;
-  background: rgba(59, 130, 246, 0.15);
-  color: #2563eb;
+  background: rgba(0, 0, 0, 0.04);
+  color: #000;
   cursor: pointer;
-  border: 1px solid rgba(59, 130, 246, 0.25);
+  border: 1px solid var(--border-color);
   transition: var(--transition-fast);
 }
 
 .templateTag:hover {
-  background: rgba(59, 130, 246, 0.3);
+  background: rgba(0, 0, 0, 0.08);
 }

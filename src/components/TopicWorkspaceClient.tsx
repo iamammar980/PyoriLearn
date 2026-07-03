@@ -127,7 +127,7 @@ export default function TopicWorkspaceClient({ topic, initialProgress }: ClientP
           }}
           className="nav-link-hover"
         >
-          ← Back to Dashboard
+          Back to Dashboard
         </Link>
 
         <div style={{ display: 'flex', gap: '8px', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>
@@ -171,7 +171,7 @@ export default function TopicWorkspaceClient({ topic, initialProgress }: ClientP
             transition: 'var(--transition-fast)'
           }}
         >
-          🎥 Video Explanation {progress.watchedVideo && '✓'}
+          Video Explanation {progress.watchedVideo && '(done)'}
         </button>
 
         <button
@@ -186,7 +186,7 @@ export default function TopicWorkspaceClient({ topic, initialProgress }: ClientP
             transition: 'var(--transition-fast)'
           }}
         >
-          📖 Study Material {progress.completed && '✓'}
+          Study Material {progress.completed && '(done)'}
         </button>
 
         <button
@@ -201,7 +201,7 @@ export default function TopicWorkspaceClient({ topic, initialProgress }: ClientP
             transition: 'var(--transition-fast)'
           }}
         >
-          ✍️ Challenge Quiz {progress.quizScore >= 70 && '✓'}
+          Challenge Quiz {progress.quizScore >= 70 && '(done)'}
         </button>
       </div>
 
@@ -248,10 +248,10 @@ export default function TopicWorkspaceClient({ topic, initialProgress }: ClientP
       {/* Course progression summary footer */}
       {progress.watchedVideo && progress.completed && progress.quizScore >= 70 && (
         <div 
-          className="glass-panel" 
-          style={{ 
-            background: 'rgba(16, 185, 129, 0.05)', 
-            borderColor: 'rgba(16, 185, 129, 0.2)',
+          className="glass-panel"
+          style={{
+            background: 'rgba(0, 0, 0, 0.04)',
+            borderColor: 'var(--border-color)',
             padding: '1.25rem 1.5rem',
             display: 'flex',
             justifyContent: 'space-between',
@@ -260,13 +260,13 @@ export default function TopicWorkspaceClient({ topic, initialProgress }: ClientP
           }}
         >
           <div>
-            <h4 style={{ color: '#a7f3d0', fontSize: '1.05rem', fontWeight: 600 }}>🎓 Topic Fully Completed!</h4>
+            <h4 style={{ color: '#000', fontSize: '1.05rem', fontWeight: 600 }}>Topic Fully Completed!</h4>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginTop: '0.25rem' }}>
               Awesome work! You have finished the video, slide materials, and passed the quiz.
             </p>
           </div>
           <Link href="/dashboard" className="gradient-button" style={{ padding: '8px 16px', fontSize: '0.9rem', background: 'var(--success-color)' }}>
-            Next Lesson →
+            Next Lesson
           </Link>
         </div>
       )}
