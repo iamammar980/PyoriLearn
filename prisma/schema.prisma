@@ -1,0 +1,72 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+model User {
+  id        Int            @id @default(autoincrement())
+  email     String         @unique
+  name      String
+  password  String?        // null for users who sign in via Google (OAuth)
+  role      String         @default("USER") // "USER" or "ADMIN"
+  createdAt DateTime       @default(now())
+  progress  UserProgress[]
+}
+
+model Topic {
+  id          Int                   @id @default(autoincrement())
+  title       String
+  description String
+  youtubeUrl  String?
+  parentId    Int?
+  order       Int                   @default(0)
+  parent      Topic?                @relation("TopicHierarchy", fields: [parentId], references: [id], onDelete: Cascade)
+  children    Topic[]               @relation("TopicHierarchy")
+  materials   EducationalMaterial[]
+  quizzes     QuizQuestion[]
+  progress    UserProgress[]
+  createdAt   DateTime              @default(now())
+}
+
+model EducationalMaterial {
+  id      Int    @id @default(autoincrement())
+  topicId Int    @unique
+  topic   Topic  @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  content String // Holds the HTML/Markdown or slide-JSON content
+  type    String // "PAGE" or "SLIDES"
+}
+
+model QuizQuestion {
+  id           Int          @id @default(autoincrement())
+  topicId      Int
+  topic        Topic        @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  questionText String
+  explanation  String?
+  options      QuizOption[]
+}
+
+model QuizOption {
+  id         Int          @id @default(autoincrement())
+  questionId Int
+  question   QuizQuestion @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  optionText String
+  isCorrect  Boolean
+}
+
+model UserProgress {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  topicId      Int
+  topic        Topic    @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  completed    Boolean  @default(false)
+  watchedVideo Boolean  @default(false)
+  quizScore    Int      @default(0) // highest score achieved, in percentage (0-100)
+  updatedAt    DateTime @updatedAt
+
+  @@unique([userId, topicId])
+}
